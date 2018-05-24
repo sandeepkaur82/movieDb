@@ -2,10 +2,12 @@ package com.sofi.moviedb.tests;
 
 import com.sofi.moviedb.helpers.SetupAndTearDown;
 import com.sofi.moviedb.helpers.ValidatableObject;
-import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.*;
+
+import static io.restassured.http.ContentType.JSON;
+import static io.restassured.http.ContentType.HTML;
 
 
 /**
@@ -18,7 +20,7 @@ public class AuthenticationTests {
 	public void testRequestTokenGeneration() {
 		validatableObject = SetupAndTearDown.testSetUp(null, null, null);
 		validatableObject.validateStatusCode(200);
-		validatableObject.validateContentType(ContentType.JSON);
+		validatableObject.validateContentType(JSON);
 		validatableObject.validateRequestToken();
 	}
 
@@ -29,6 +31,6 @@ public class AuthenticationTests {
 		String authenticationURL = String.format("https://www.themoviedb.org/authenticate/%s", token);
 		validatableObject = new ValidatableObject(given().when().get(authenticationURL));
 		validatableObject.validateStatusCode(200);
-		validatableObject.validateContentType(ContentType.HTML);
+		validatableObject.validateContentType(HTML);
 	}
 }
