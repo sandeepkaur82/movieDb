@@ -2,7 +2,7 @@
 API tests for https://www.themoviedb.org/
 
 
-This project contains early implementations of the tests for themoviedb API using rest assured framework.
+This project contains few basic implementations of the tests for themoviedb API using rest assured framework.
 
 Steps to run the tests:
 1. Clone the repo: movieDb and checkout branch: master.
